@@ -4,9 +4,10 @@
   "description": "Learning WebRTC video and audio calls.",
   "main": "src/ui/index.js",
   "scripts": {
-    "build": "$(npm bin)/babel src/ -d lib/",
-    "test": "$(npm bin)/eslint ./src/*/*.js",
-    "flow": "$(npm bin)/flow ./src/*/*.js"
+    "build": "$(npm bin)/babel src/ -d build/",
+    "test": "npm run flow && npm run eslint",
+    "eslint": "$(npm bin)/eslint ./src/*/*.js",
+    "flow": "$(npm bin)/flow status --quiet"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,19 @@
   "homepage": "https://github.com/WIVSW/webrtc-video-chat#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^5.12.0",
-    "eslint-config-google": "^0.11.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.3",
     "flow-bin": "^0.90.0"
-  }
+  },
+  "dependencies": {}
 }
