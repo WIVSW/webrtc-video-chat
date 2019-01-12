@@ -1,0 +1,23 @@
+{
+  "name": "webrtc-video-chat",
+  "version": "0.0.1",
+  "description": "Learning WebRTC video and audio calls.",
+  "main": "src/ui/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint ./src/*/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WIVSW/webrtc-video-chat.git"
+  },
+  "author": "WIVSW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WIVSW/webrtc-video-chat/issues"
+  },
+  "homepage": "https://github.com/WIVSW/webrtc-video-chat#readme",
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-google": "^0.11.0"
+  }
+}
