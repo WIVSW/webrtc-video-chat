@@ -4,10 +4,10 @@
   "description": "Learning WebRTC video and audio calls.",
   "main": "src/ui/index.js",
   "scripts": {
-    "build": "$(npm bin)/babel src/ -d build/",
+    "build": "export NODE_ENV=production && $(npm bin)/webpack --mode=production",
     "test": "npm run flow && npm run eslint",
     "eslint": "$(npm bin)/eslint ./src/*/*.js",
-    "flow": "$(npm bin)/flow status --quiet"
+    "flow": "$(npm bin)/flow"
   },
   "repository": {
     "type": "git",
@@ -23,17 +23,25 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.5",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
     "eslint": "^5.12.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-flowtype": "^3.2.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.3",
-    "flow-bin": "^0.90.0"
+    "flow-bin": "^0.90.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
 }

@@ -1,6 +1,9 @@
 // @flow
-function square(n: number): number {
-	return n * n;
-}
+import ReactDOM from 'react-dom';
+import template from './index.jsx';
 
-square(2); // Error!
+const root = document.getElementById('root');
+
+if (root) {
+	ReactDOM.render(template(), root);
+}
