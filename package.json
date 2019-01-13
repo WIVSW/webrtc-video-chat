@@ -7,7 +7,7 @@
     "build": "export NODE_ENV=production && $(npm bin)/webpack --mode=production",
     "test": "npm run flow && npm run eslint",
     "eslint": "$(npm bin)/eslint ./src/*/*.js",
-    "flow": "$(npm bin)/flow"
+    "flow": "$(npm bin)/flow --quiet"
   },
   "repository": {
     "type": "git",
