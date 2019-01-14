@@ -1,22 +1,13 @@
-const path = require('path');
-const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const cwd = process.cwd();
-
+const { entry, optimization } = require('./common.config');
+const { babel } = require('./rules');
+const { html, hmr } = require('./plugins');
 
 module.exports = {
-	entry: {
-		index: path.resolve(cwd, 'src/ui/index.js'),
-		vendor: ['react', 'react-dom'],
-	},
+	entry,
+	optimization,
 	module: {
 		rules: [
-			{
-				test: /\.(js|jsx)$/,
-				use: 'babel-loader',
-				exclude: /node_modules/,
-			},
+			babel,
 		],
 	},
 	devServer: {
@@ -24,9 +15,7 @@ module.exports = {
 		port: 9000, // Defaults to 8080
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: 'src/ui/index.html',
-		}),
-		new HotModuleReplacementPlugin(),
+		html,
+		hmr,
 	],
 };

@@ -1,51 +1,24 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const fromRoot = require('./helpers/from-root');
 
-const cwd = process.cwd();
+const { entry, optimization } = require('./common.config');
+const { babel } = require('./rules');
+const { clean, html, scriptExt } = require('./plugins');
 
 module.exports = {
-	entry: {
-		index: path.resolve(cwd, 'src/ui/index.js'),
-		vendor: ['react', 'react-dom'],
-	},
+	entry,
 	output: {
-		path: path.resolve(cwd, 'build'),
+		path: fromRoot('build'),
 		filename: 'js/[name].[chunkhash].js',
 	},
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				commons: {
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendor',
-					chunks: 'all',
-				},
-			},
-		},
-	},
+	optimization,
 	module: {
 		rules: [
-			{
-				test: /\.(js|jsx)$/,
-				use: 'babel-loader',
-				exclude: /node_modules/,
-			},
+			babel,
 		],
 	},
 	plugins: [
-		new CleanWebpackPlugin(
-			path.resolve(cwd, 'build/*'),
-			{
-				root: cwd,
-			},
-		),
-		new HtmlWebpackPlugin({
-			template: path.resolve(cwd, 'src/ui/index.html'),
-		}),
-		new ScriptExtHtmlWebpackPlugin({
-			defaultAttribute: 'defer',
-		}),
+		clean,
+		html,
+		scriptExt,
 	],
 };
