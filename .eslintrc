@@ -16,6 +16,7 @@
     "rules": {
         "indent": ["error", "tab"],
         "no-tabs": "off",
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "react/jsx-indent" : ["error", "tab"]
     }
 }

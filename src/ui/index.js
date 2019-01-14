@@ -1,9 +1,9 @@
 // @flow
-import ReactDOM from 'react-dom';
-import template from './index.jsx';
+const { render } = require('react-dom');
+const template = require('./index.jsx');
 
-const root = document.getElementById('root');
+const root: ?HTMLElement = document.getElementById('root');
 
 if (root) {
-	ReactDOM.render(template(), root);
+	render(template(), root);
 }

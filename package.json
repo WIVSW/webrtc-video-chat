@@ -7,7 +7,7 @@
     "start": "export NODE_ENV=development && $(npm bin)/webpack-dev-server --mode=development",
     "build": "export NODE_ENV=production && $(npm bin)/webpack --mode=production",
     "test": "npm run flow && npm run eslint",
-    "eslint": "$(npm bin)/eslint ./src/*/*.js",
+    "eslint": "$(npm bin)/eslint ./src/*/*.js ./src/*/*.jsx",
     "flow": "$(npm bin)/flow --quiet",
     "typed.install": "$(npm bin)/flow-typed install --libdefDir externs/",
     "typed.stub": "flow-typed create-stub --libdefDir externs/"
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1"
   }
 }
