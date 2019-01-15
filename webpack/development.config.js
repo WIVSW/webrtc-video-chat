@@ -1,8 +1,13 @@
 const fromRoot = require('./helpers/from-root');
 
 const { entry, optimization } = require('./common.config');
-const { babel } = require('./rules');
-const { html, hmr, scriptExt, asyncChunkNames } = require('./plugins');
+const { babel, sass } = require('./rules');
+const {
+	html,
+	hmr,
+	scriptExt,
+	asyncChunkNames,
+} = require('./plugins');
 
 module.exports = {
 	entry,
@@ -15,6 +20,7 @@ module.exports = {
 	module: {
 		rules: [
 			babel,
+			sass,
 		],
 	},
 	devServer: {
