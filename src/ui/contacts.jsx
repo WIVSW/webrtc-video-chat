@@ -1,4 +1,5 @@
 // @flow
 const React = require('react');
+const Hello = require('./hello.jsx');
 
-module.exports = () => <h1>Hello, Contacts!</h1>;
+module.exports = () => <h1>Hello, Contacts! <Hello /></h1>;

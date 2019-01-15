@@ -1,18 +1,26 @@
 const fromRoot = require('./helpers/from-root');
 
 module.exports = {
-	entry: {
-		index: fromRoot('src/ui/index.js'),
-		vendor: ['react', 'react-dom'],
-	},
+	entry: fromRoot('src/ui/index.js'),
 	optimization: {
 		minimize: process.env.NODE_ENV !== 'development',
 		splitChunks: {
 			cacheGroups: {
+				default: false,
+				vendors: false,
 				vendor: {
-					test: /[\\/]node_modules[\\/]/,
 					name: 'vendor',
 					chunks: 'all',
+					test: /[\\/]node_modules[\\/]/,
+					priority: 20,
+				},
+				common: {
+					name: 'common',
+					minChunks: 2,
+					chunks: 'all',
+					priority: 10,
+					reuseExistingChunk: true,
+					enforce: true,
 				},
 			},
 		},
