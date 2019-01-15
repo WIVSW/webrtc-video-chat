@@ -9,22 +9,8 @@ const Layout = require('./layout.jsx');
 
 const LoadingComponent = () => <h1>Please wait...</h1>;
 
-const HomePromise = () => {
-	return Promise
-		.all([
-			import('./home.jsx'),
-			(new Promise(resolve => setTimeout(() => resolve(), 1000))),
-		])
-		.then(data => data[0]);
-};
-const ContactsPromise = () => {
-	return Promise
-		.all([
-			import('./contacts.jsx'),
-			(new Promise(resolve => setTimeout(() => resolve(), 1000))),
-		])
-		.then(data => data[0]);
-};
+const HomePromise = () => import('./home.jsx');
+const ContactsPromise = () => import('./contacts.jsx');
 
 const AsyncHome = loadable({
 	loader: HomePromise,
