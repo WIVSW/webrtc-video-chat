@@ -7,6 +7,7 @@ const {
 	hmr,
 	scriptExt,
 	asyncChunkNames,
+	sass: sassPlugin,
 } = require('./plugins');
 
 module.exports = {
@@ -28,6 +29,7 @@ module.exports = {
 		port: 9000, // Defaults to 8080
 	},
 	plugins: [
+		sassPlugin,
 		html,
 		hmr,
 		scriptExt,

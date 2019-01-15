@@ -9,8 +9,8 @@ const Layout = require('./layout.jsx');
 
 const LoadingComponent = () => <h1>Please wait...</h1>;
 
-const HomePromise = () => import('./home.jsx');
-const ContactsPromise = () => import('./contacts.jsx');
+const HomePromise = () => import('./pages/home.jsx');
+const ContactsPromise = () => import('./pages/contacts.jsx');
 
 const AsyncHome = loadable({
 	loader: HomePromise,
