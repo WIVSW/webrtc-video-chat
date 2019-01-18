@@ -14,8 +14,8 @@ module.exports = {
 	entry,
 	output: {
 		path: fromRoot('build'),
-		filename: 'js/[name].[hash].js',
-		chunkFilename: 'js/[name].[hash].js',
+		filename: 'js/[name].js',
+		chunkFilename: 'js/[name].js',
 	},
 	optimization,
 	module: {

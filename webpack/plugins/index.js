@@ -4,6 +4,7 @@ const html = require('./html');
 const scriptExt = require('./script-ext');
 const asyncChunkNames = require('./async-chunk-names');
 const sass = require('./sass');
+const optimizeCss = require('./optimize-css');
 
 module.exports = {
 	clean,
@@ -12,4 +13,5 @@ module.exports = {
 	scriptExt,
 	asyncChunkNames,
 	sass,
+	optimizeCss,
 };

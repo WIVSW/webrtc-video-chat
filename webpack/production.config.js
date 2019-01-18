@@ -8,6 +8,7 @@ const {
 	scriptExt,
 	asyncChunkNames,
 	sass: sassPlugin,
+	optimizeCss,
 } = require('./plugins');
 
 module.exports = {
@@ -27,6 +28,7 @@ module.exports = {
 	plugins: [
 		clean,
 		sassPlugin,
+		optimizeCss,
 		html,
 		scriptExt,
 		asyncChunkNames,
