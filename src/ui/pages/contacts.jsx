@@ -1,13 +1,10 @@
 // @flow
 const React = require('react');
-const classNames = require('classnames/bind');
 const Hello = require('../widgets/hello.jsx');
-const styles = require('./contacts.scss');
-
-const cx = classNames.bind(styles);
+require('./contacts.scss');
 
 module.exports = () => (
-	<h1 className={cx('contacts')}>
+	<h1 className="contacts">
 		<span>Hello, Contacts!</span>
 		<Hello />
 	</h1>
