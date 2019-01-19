@@ -13,5 +13,7 @@
 
 [options]
 all=true
+module.name_mapper.extension='scss' -> 'SCSSModule'
+module.system=haste
 
 [strict]
