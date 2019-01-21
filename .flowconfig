@@ -15,5 +15,6 @@
 all=true
 module.name_mapper.extension='scss' -> 'SCSSModule'
 module.system=haste
+munge_underscores=true
 
 [strict]
