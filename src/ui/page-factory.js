@@ -1,31 +1,35 @@
-const {Component} = require('react');
+// @flow
+import type { ComponentType } from 'react';
+import type { LoadableComponent } from 'react-loadable';
+
 const loadable = require('react-loadable');
-const { LoadableComponent } = require('react-loadable');
 
-const names = {
-	HOME: 'home',
-	CONTACTS: 'contacts',
-};
-
-const { HOME, CONTACTS } = names;
-
-type PageName = HOME | CONTACTS;
+type PageName = 'home' | 'contacts';
 
 class PageFactory {
-	constructor(preloader : Component) {
-		this._preloader = preloader;
+	_preloader: ComponentType<{}>;
 
+	_pagesMap: Map<PageName, LoadableComponent>;
+
+	static PageNames: {[key: string]: PageName} = {
+		HOME: 'home',
+		CONTACTS: 'contacts',
+	};
+
+	constructor(preloader: ComponentType<{}>) {
+		this._preloader = preloader;
 		this._pagesMap = new Map();
 
-		this.bind();
+		this._bind();
 	}
 
-	bind() {
-		this.add(HOME, () => import('./pages/home.jsx'));
-		this.add(CONTACTS, () => import('./pages/contacts.jsx'));
+	_bind() {
+		const { HOME, CONTACTS } = PageFactory.PageNames;
+		this._add(HOME, () => import('./pages/home.jsx'));
+		this._add(CONTACTS, () => import('./pages/contacts.jsx'));
 	}
 
-	add(pageName : PageName, promise : LoadableComponent) {
+	_add(pageName : PageName, promise : LoadableComponent) {
 		const loader = promise;
 		const loading = this._preloader;
 		this._pagesMap.set(
@@ -41,7 +45,5 @@ class PageFactory {
 		return this._pagesMap.get(pageName);
 	}
 }
-
-PageFactory.PageNames = names;
 
 module.exports = PageFactory;
