@@ -25,7 +25,7 @@ module.exports = {
 		],
 	},
 	devServer: {
-		host: '192.168.0.101', // Defaults to `localhost`
+		host: '192.168.0.102', // Defaults to `localhost`
 		port: 9000, // Defaults to 8080
 	},
 	plugins: [

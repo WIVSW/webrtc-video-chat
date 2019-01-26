@@ -7,7 +7,7 @@ const PageFactory = require('./page-factory');
 
 const Layout = require('./layout.jsx');
 
-const pn = new PageFactory(() => <h1>Please wait...</h1>);
+const pn: PageFactory = new PageFactory(() => <h1>Please wait...</h1>);
 
 module.exports = () => (
 	<BrowserRouter>
