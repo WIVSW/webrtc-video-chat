@@ -6,15 +6,17 @@ const Route = require('react-router-dom/Route').default;
 const PageFactory = require('./page-factory');
 
 const Layout = require('./layout.jsx');
+const Preloader = require('./preloader.jsx');
 
-const pn: PageFactory = new PageFactory(() => <h1>Please wait...</h1>);
+const { HOME, CONTACTS } = PageFactory.PageNames;
+const pn: PageFactory = new PageFactory(Preloader);
 
 module.exports = () => (
 	<BrowserRouter>
 		<Layout>
 			<Switch>
-				<Route path="/" exact component={pn.loadPage(PageFactory.PageNames.HOME)} />
-				<Route path="/contacts" component={pn.loadPage(PageFactory.PageNames.CONTACTS)} />
+				<Route path="/" exact component={pn.loadPage(HOME)} />
+				<Route path="/contacts" component={pn.loadPage(CONTACTS)} />
 			</Switch>
 		</Layout>
 	</BrowserRouter>

@@ -3,11 +3,11 @@ const React = require('react');
 const NavLink = require('react-router-dom/NavLink').default;
 const Switch = require('react-router-dom/Switch').default;
 
-type Props = {
+type LayoutPropsType = {
 	children: Switch
 };
 
-module.exports = (props: Props) => {
+module.exports = (props: LayoutPropsType) => {
 	const { children } = props;
 	return (
 		<div className="layout">
