@@ -1,0 +1,20 @@
+[ignore]
+.*/node_modules/.*
+.*/build/.*
+.*/webpack/.*
+.*/webpack.config.js
+
+[include]
+
+[libs]
+./externs
+
+[lints]
+
+[options]
+all=true
+module.name_mapper.extension='scss' -> 'SCSSModule'
+module.system=haste
+munge_underscores=true
+
+[strict]
