@@ -8,15 +8,16 @@ const PageFactory = require('./page-factory');
 const Layout = require('./layout.jsx');
 const Preloader = require('./preloader.jsx');
 
-const { HOME, CONTACTS } = PageFactory.PageNames;
+const { CONTACTS, CHAT, SETTINGS } = PageFactory.PageNames;
 const pn: PageFactory = new PageFactory(Preloader);
 
 module.exports = () => (
 	<BrowserRouter>
 		<Layout>
 			<Switch>
-				<Route path="/" exact component={pn.loadPage(HOME)} />
-				<Route path="/contacts" component={pn.loadPage(CONTACTS)} />
+				<Route path="/" exact component={pn.loadPage(CONTACTS)} />
+				<Route path="/chat" component={pn.loadPage(CHAT)} />
+				<Route path="/settings" component={pn.loadPage(SETTINGS)} />
 			</Switch>
 		</Layout>
 	</BrowserRouter>

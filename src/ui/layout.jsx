@@ -13,8 +13,9 @@ module.exports = (props: LayoutPropsType) => {
 		<div className="layout">
 			<div className="nav">
 				<ul className="nav__list">
-					<NavLink to="/" exact>Home</NavLink>
-					<NavLink to="/contacts">Contacts</NavLink>
+					<NavLink to="/" exact>Contacts</NavLink>
+					<NavLink to="/chat">Chat</NavLink>
+					<NavLink to="/settings">Settings</NavLink>
 				</ul>
 			</div>
 			{children}

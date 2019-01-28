@@ -3,8 +3,8 @@ const loadable = require('react-loadable');
 
 opaque type LoadableComponent<P> = Promise<{default: React$ComponentType<P>}>;
 opaque type Loader<P> = () => LoadableComponent<P>;
-opaque type PageNameValues = 'home' | 'contacts';
-type PageNameKeys = 'HOME' | 'CONTACTS';
+opaque type PageNameValues = 'contacts' | 'chat' | 'settings';
+type PageNameKeys = 'CONTACTS' | 'CHAT' | 'SETTINGS';
 
 class PageFactory {
 	_preloader: React$ComponentType<{}>;
@@ -21,9 +21,10 @@ class PageFactory {
 	}
 
 	_bind() {
-		const { HOME, CONTACTS } = PageFactory.PageNames;
-		this._add(HOME, () => import('./pages/home.jsx'));
-		this._add(CONTACTS, () => import('./pages/contacts.jsx'));
+		const { CONTACTS, CHAT, SETTINGS } = PageFactory.PageNames;
+		this._add(CONTACTS, () => import('./pages/contacts/contacts.jsx'));
+		this._add(CHAT, () => import('./pages/chat/chat.jsx'));
+		this._add(SETTINGS, () => import('./pages/settings/settings.jsx'));
 	}
 
 	_add(pageName : PageNameValues, loader: Loader<{}>) {
@@ -40,8 +41,9 @@ class PageFactory {
 }
 
 PageFactory.PageNames = {
-	HOME: 'home',
 	CONTACTS: 'contacts',
+	CHAT: 'chat',
+	SETTINGS: 'settings',
 };
 
 module.exports = PageFactory;
